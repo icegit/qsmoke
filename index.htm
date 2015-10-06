@@ -1,0 +1,74 @@
+<html>
+<head>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+	#carrier {
+		margin-top:10%;
+		text-align:center;
+	}
+	#showTime {
+		font-family: "Trebuchet MS";
+		padding: 25px 0;
+	}
+	#prbar {
+		width: 35%;
+		margin: 0 auto;
+	}	
+</style>
+</head>
+<body>
+
+<div id="carrier">
+	<img src="Lungs.jpg">
+	<h3 id="showTime"></h3>
+<div class="progress" id="prbar"></div>	
+<span id="percentdata"></span>
+</div>
+
+
+
+<script>
+
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
+showDiff();
+
+function showDiff(){
+    var date1 = new Date("2015-10-05 18:30:00");  
+    var date2 = new Date();
+    //Customise date2 for your required future time
+    
+    var diff = (date2 - date1)/1000;
+    var diff = Math.abs(Math.floor(diff));
+    
+    var days = pad(Math.floor(diff/(24*60*60)),2);
+    var leftSec = diff - days * 24*60*60;
+    
+    var hrs = pad(Math.floor(leftSec/(60*60)),2);
+    var leftSec = leftSec - hrs * 60*60;
+      
+    var min = pad(Math.floor(leftSec/(60)),2);
+    var leftSec = pad(leftSec - min * 60,2);
+    
+    
+	var percenta = pad((((date2 - date1)/1000/24/60/60) / 90 * 100).toFixed(4),2);
+	//var percenta = (days / 90 * 100).toFixed(2);
+	//var percenta = days / 90 * 100;
+    
+    document.getElementById("showTime").innerHTML = "Since " + days + " days " + hrs + " hours " + min + " minutes and " + leftSec + " seconds.";
+	
+    document.getElementById("prbar").innerHTML = "<div class='progress-bar progress-bar-success progress-bar-striped active' role='progressbar' aria-valuenow='" + percenta + "' aria-valuemin='0' aria-valuemax='100' style='width:"+ percenta +"%'> <span class='sr-only'>"+ percenta +"% Complete</span></div>";	
+	
+	document.getElementById("percentdata").innerHTML =  percenta + "% Complete"
+    
+setTimeout(showDiff,1000);
+}
+</script>
+</body>
+</html>
