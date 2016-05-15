@@ -19,6 +19,7 @@
 	
 	div {
 		padding: 25px;	
+		text-align:center;
 	}
 </style>
 </head>
@@ -75,11 +76,11 @@ function showDiff(){
 	
 	document.getElementById("percentdata").innerHTML =  percenta + "% Complete"
 	
-   var cost = pad(diff/(24*60*60)*cigarattepackcost,2); 	
-   document.getElementById("cost").innerHTML =  cost + "€ saved."
+   var cost = pad(Math.round(diff/(24*60*60)*cigarattepackcost* 100) / 100, 2);	
+   document.getElementById("cost").innerHTML =  cost + " € saved."
    
-   var dailytime = pad(diff/(24*60*60)*dailycigarettetime,2); 
-   document.getElementById("time").innerHTML =  dailytime + "minutes saved."
+   var dailytime = pad(Math.round(diff/(24*60*60)*dailycigarettetime* 100) / 100, 2); 
+   document.getElementById("time").innerHTML =  dailytime + " minutes saved."
     
 setTimeout(showDiff,1000);
 }
