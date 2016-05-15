@@ -15,7 +15,11 @@
 	#prbar {
 		width: 35%;
 		margin: 0 auto;
-	}	
+	}
+	
+	div {
+		padding: 25px;	
+	}
 </style>
 </head>
 <body>
@@ -27,7 +31,8 @@
 <span id="percentdata"></span>
 </div>
 
-
+<div id="cost"></div>
+<div id="time"></div>
 
 <script>
 
@@ -40,6 +45,9 @@ function pad(n, width, z) {
 showDiff();
 
 function showDiff(){
+    var cigarattepackcost = 8;
+    var dailycigarettetime = 25*5;
+    
     var date1 = new Date("2016-05-15 02:00:00");  
     var date2 = new Date();
     //Customise date2 for your required future time
@@ -66,6 +74,12 @@ function showDiff(){
     document.getElementById("prbar").innerHTML = "<div class='progress-bar progress-bar-success progress-bar-striped active' role='progressbar' aria-valuenow='" + percenta + "' aria-valuemin='0' aria-valuemax='100' style='width:"+ percenta +"%'> <span class='sr-only'>"+ percenta +"% Complete</span></div>";	
 	
 	document.getElementById("percentdata").innerHTML =  percenta + "% Complete"
+	
+   var cost = pad(diff/(24*60*60)*cigarattepackcost,2); 	
+   document.getElementById("cost").innerHTML =  cost + "€ saved."
+   
+   var dailytime = pad(diff/(24*60*60)*dailycigarettetime,2); 
+   document.getElementById("time").innerHTML =  dailytime + "minutes saved."
     
 setTimeout(showDiff,1000);
 }
