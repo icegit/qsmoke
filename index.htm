@@ -51,11 +51,12 @@ function pad(n, width, z) {
 showDiff();
 
 function showDiff(){
-    var cigarattepackcost = 5.6;
+    var cigarattepackcost = 6.5;
     var dailycigarettetime = 20*4;
     
     //var date1 = new Date("2016-09-05 11:31:00");  
-    var date1 = new Date("2017-06-09 09:03:00");  	
+    //var date1 = new Date("2017-06-09 09:03:00");  	
+    var date1 = new Date("2017-06-13 17:30:00");  	
     var date2 = new Date();
     //Customise date2 for your required future time
     
@@ -85,8 +86,8 @@ function showDiff(){
    var cost = pad(Math.round(diff/(24*60*60)*cigarattepackcost* 100) / 100, 2);	
    document.getElementById("cost").innerHTML =  "<h4>" + cost + " € saved.</h4>"
    
-   var dailytime = pad(Math.round(diff/(24*60*60)*dailycigarettetime* 100) / 100, 2); 
-   document.getElementById("time").innerHTML =  "<h4>" + dailytime + " minutes saved.</h4>"
+   var dailytime = pad(Math.round(diff/(24*60*60)*dailycigarettetime* 100) / 100, 2)/60; 
+   document.getElementById("time").innerHTML =  "<h4>" + dailytime + " hours saved.</h4>"
     
 setTimeout(showDiff,1000);
 }
