@@ -81,12 +81,13 @@ function showDiff(){
 	
     document.getElementById("prbar").innerHTML = "<div class='progress-bar progress-bar-success progress-bar-striped active' role='progressbar' aria-valuenow='" + percenta + "' aria-valuemin='0' aria-valuemax='100' style='width:"+ percenta +"%'> <span class='sr-only'>"+ percenta +"% Complete</span></div>";	
 	
-	document.getElementById("percentdata").innerHTML =  percenta + "% Complete"
+    document.getElementById("percentdata").innerHTML =  percenta + "% Complete";
 	
-   var cost = pad(Math.round(diff/(24*60*60)*cigarattepackcost* 100) / 100, 2);	
+   var diffindays = diff/(24*60*60);	
+   var cost = pad(Math.round(diffindays * cigarattepackcost * 100) / 100, 2);	
    document.getElementById("cost").innerHTML =  "<h4>" + cost + " € saved.</h4>"
    
-   var dailytime = pad(Math.round(diff/(24*60*60)*dailycigarettetime* 100) / 100/60, 2); 
+   var dailytime = pad(Math.round(diffindays * dailycigarettetime * 100) / (100 * 60), 2); 
    document.getElementById("time").innerHTML =  "<h4>" + dailytime + " hours saved.</h4>"
     
 setTimeout(showDiff,1000);
