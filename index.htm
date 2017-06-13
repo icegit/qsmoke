@@ -86,7 +86,7 @@ function showDiff(){
    var cost = pad(Math.round(diff/(24*60*60)*cigarattepackcost* 100) / 100, 2);	
    document.getElementById("cost").innerHTML =  "<h4>" + cost + " € saved.</h4>"
    
-   var dailytime = pad(Math.round(diff/(24*60*60)*dailycigarettetime* 100) / 100, 2)/60; 
+   var dailytime = pad(Math.round(diff/(24*60)*dailycigarettetime* 100) / 100, 2); 
    document.getElementById("time").innerHTML =  "<h4>" + dailytime + " hours saved.</h4>"
     
 setTimeout(showDiff,1000);
