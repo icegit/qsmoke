@@ -1,9 +1,12 @@
 <html>
 <head>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+  <script src="https://rawgit.com/codebox/moment-precise-range/master/moment-precise-range.js"></script>
+
 <style>
 	#carrier {
 		margin-top:10%;
@@ -34,7 +37,8 @@
 	}
 	
 	.notachieved {
-		color: gray;
+		color: gray !important;
+		font-weight: 300;
 	}	
 </style>
 </head>
@@ -45,88 +49,97 @@
 	<h3 id="showTime"></h3>
 <div class="progress" id="prbar"></div>	
 <span id="percentdata"></span>
-</div>
-
 <div id="cost" class="mydata"></div>
 <div id="time" class="mydata"></div>
+</div>
+
+
+
+
+<div class="list-group" id="achs">
+  <a class="list-group-item" href="#" data-value="20 minutes"><i class="fa fa-check fa-fw" aria-hidden="true"></i>&nbsp; 20 min > Your pulse and blood pressure start to drop back to normal, and your hands and feet warm up to their usual temperature.</a>
+  <a class="list-group-item" href="#" data-value="8 hours"><i class="fa fa-check fa-fw" aria-hidden="true"></i>&nbsp; 8 hour > You have half the amount of nicotine and carbon monoxide in your blood.</a>
+  <a class="list-group-item" href="#" data-value="30000"><i class="fa fa-check fa-fw" aria-hidden="true"></i>&nbsp; 12 hour > Carbon monoxide level is back to normal. And your heart will thank you. Now it doesn’t have to pump so hard to try to get enough oxygen to your body.</a>
+  <a class="list-group-item" href="#" data-value="6000000"><i class="fa fa-check fa-fw" aria-hidden="true"></i>&nbsp; 24 hour > Settings</a>
+</div>
+
+
 
 <script>
+
 
 function pad(n, width, z) {
   z = z || '0';
   n = n + '';
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
+ 
+   
 
+var QuitTime = moment("2017-11-16 12:30:00",       "YYYY-MM-DD HH:mm:ss");
+
+var SmokingCostPerDay = 6.5;
+var MinutesSpentOnSmokingPerDay = 20 * 5;
+
+var LungCleaningTime = moment.duration(3, 'months');
+	
 showDiff();
 
+
+
+
 function showDiff(){
-    var cigarattepackcost = 6.5;
-    var dailycigarettetime = 20 * 4 / 60;
-    
-    //var date1 = new Date("2016-09-05 11:31:00");  
-    //var date1 = new Date("2017-06-09 09:03:00");  	
-    //var date1 = new Date("2017-06-13 17:30:00");  	
-    //var date1 = new Date("2017-08-29 14:30:00");  		
-    //var date1 = new Date("2017-10-02 14:30:00");  
-    var date1 = new Date("2017-11-16 12:30:00");  	
-    var date2 = new Date();
-    //Customise date2 for your required future time
-    
-    var diff = (date2 - date1)/1000;
-    var diff = Math.abs(Math.floor(diff));
-    
-    var days = pad(Math.floor(diff/(24*60*60)),2);
-    var leftSec = diff - days * 24*60*60;
-    
-    var hrs = pad(Math.floor(leftSec/(60*60)),2);
-    var leftSec = leftSec - hrs * 60*60;
-      
-    var min = pad(Math.floor(leftSec/(60)),2);
-    var leftSec = pad(leftSec - min * 60,2);
-    
-    
-	var percenta = pad((((date2 - date1)/1000/24/60/60) / 90 * 100).toFixed(4),2);
-	//var percenta = (days / 90 * 100).toFixed(2);
-	//var percenta = days / 90 * 100;
-    
-    document.getElementById("showTime").innerHTML = "Since " + days + " days " + hrs + " hours " + min + " minutes and " + leftSec + " seconds.";
+
+    var rightnow = moment();
+	var QuitDuration = moment.duration(rightnow.diff(QuitTime));
 	
-    document.getElementById("prbar").innerHTML = "<div class='progress-bar progress-bar-success progress-bar-striped active' role='progressbar' aria-valuenow='" + percenta + "' aria-valuemin='0' aria-valuemax='100' style='width:"+ percenta +"%'> <span class='sr-only'>"+ percenta +"% Complete</span></div>";	
 	
-    document.getElementById("percentdata").innerHTML =  percenta + "% Complete";
+	var ElapsedTime = moment.preciseDiff(QuitTime, rightnow);
+	var LungCleaningProgress = (QuitDuration / LungCleaningTime * 100 ).toFixed(5);
+	var SavedCost = (SmokingCostPerDay * QuitDuration.asDays()).toFixed(2);
+	var SavedTime = moment.duration((MinutesSpentOnSmokingPerDay * QuitDuration.asDays()), 'minutes').humanize();
+
+	$(document).ready(function(){
 	
-   var diffindays = diff/(24*60*60);	
-   var cost = pad(Math.round(diffindays * cigarattepackcost * 100) / 100, 2);	
-   document.getElementById("cost").innerHTML =  "<h4>" + cost + " € saved.</h4>"
-   
-   var dailytime = pad(Math.round(diffindays * dailycigarettetime * 100) / 100, 2); 
-   document.getElementById("time").innerHTML =  "<h4>" + dailytime + " hours saved.</h4>"
-	
-   $(document).ready(function(){
-	$( "#achs a.list-group-item" ).each(function() {
+		//Show elapsed time
+		$("#showTime").text(ElapsedTime);
 		
-		    if($(this).data("value") < diff){
-        		 $(this).addClass("achieved").removeClass("notachieved");
-    			} else
-			{
-			 $(this).addClass("notachieved").removeClass("achieved");
-			};
-				
+		//Show lung progress bar
+		$("#prbar").html("<div class='progress-bar progress-bar-success progress-bar-striped active' role='progressbar' aria-valuenow='" + LungCleaningProgress + "' aria-valuemin='0' aria-valuemax='100' style='width:"+ LungCleaningProgress +"%'> <span class='sr-only'>"+ LungCleaningProgress +"% Complete</span></div>");
+		
+		// Show percent data
+		$("#percentdata").text(LungCleaningProgress + "% Complete");
+		
+		// Show saved amount
+		$("#percentdata").html("<h4> €" + SavedCost + " saved.</h4>");
+		
+		// Show saved amount
+		$("#time").html("<h4>" + SavedTime + " saved.</h4>");		
+		
+		
+			$( "#achs a.list-group-item" ).each(function() {
+		
+				//console.log (ElapsedTime + "   " + $(this).data("value"));
+				if($(this).data("value") < ElapsedTime){
+					 $(this).addClass("achieved").removeClass("notachieved");
+					} else
+				{
+				 $(this).addClass("notachieved").removeClass("achieved");
+				};
+					
   		
+			});
+		
 	});
-   });
+	
+
     
 setTimeout(showDiff,1000);
+
 }
 </script>
 	
-<div class="list-group" id="achs">
-  <a class="list-group-item" href="#" data-value="20m"><i class="fa fa-check fa-fw" aria-hidden="true"></i>&nbsp; Your pulse and blood pressure start to drop back to normal, and your hands and feet warm up to their usual temperature.</a>
-  <a class="list-group-item" href="#" data-value="8h"><i class="fa fa-check fa-fw" aria-hidden="true"></i>&nbsp;  You have half the amount of nicotine and carbon monoxide in your blood.</a>
-  <a class="list-group-item" href="#" data-value="12h"><i class="fa fa-check fa-fw" aria-hidden="true"></i>&nbsp; Carbon monoxide level is back to normal. And your heart will thank you. Now it doesn’t have to pump so hard to try to get enough oxygen to your body.</a>
-  <a class="list-group-item" href="#" data-value="24h"><i class="fa fa-check fa-fw" aria-hidden="true"></i>&nbsp; Settings</a>
-</div>
+
 	
 </body>
 </html>
