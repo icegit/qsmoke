@@ -105,7 +105,15 @@ function showDiff(){
 	
    $(document).ready(function(){
 	$( "#achs a.list-group-item" ).each(function() {
-  		$( this ).addClass("achieved");
+		
+		    if($(this).data("value") < diff){
+        		 $(this).addClass("achieved").removeClass("notachieved");
+    			} else
+			{
+			 $(this).addClass("notachieved").removeClass("achieved");
+			};
+				
+  		
 	});
    });
     
