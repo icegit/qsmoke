@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 		<style>
 			#leftside {
-			  text-align:center;
+			text-align:center;
 			}
 			#showTime {
 			font-family: "Trebuchet MS";
@@ -40,13 +40,13 @@
 			//visibility:hidden;
 			display:none;
 			}
-			
+
 			.netachieved {
 			color: darkgreen !important;
 			font-weight: 600;
 			}	
-			
-			
+
+
 			.biggerspan {
 			font-size: 110%;
 			}			
@@ -58,96 +58,96 @@
 			//font-weight: 300;
 			//visibility:hidden;
 			display:none;
-			
+
 			}	
-			
+
 			.inblk {
-			 display: inline-block;
+			display: inline-block;
 			}
-			
-			
+
+
 			.ahmfaicon{
 			margin: 0 0.5em 0 0em;
 			}	
-			
+
 			.column {
-				margin-top : 2em;
+			margin-top : 2em;
 			}
-			
+
 			.showit {
-				display: inline-block !important;
+			display: inline-block !important;
 			}
-			
+
 			.btn {
-				margin: 1em 0;
+			margin: 1em 0;
 			}
-			
-			
+
+
 		</style>
 	</head>
 	<body>
 
 		<div class="container" id="carrier">
-			<div class="row align-items-center">
-				<div id="leftside" class="column col-sm-6">
+			<div class="row align-items-top">
+				<div id="leftside" class="column col">
 					<img src="Lungs.jpg" />
 					<h3 id="showTime"></h3>
 					<div class="progress" id="prbar"></div>	
-
 				</div>
-
-				<div class="column col-sm-6">
+			</div>
+			<div class="row align-items-top">
+				<div class="column col">
 					<div class="list-group" id="achs">
 						<!--<a class="list-group-item" href="#"><i class="fa fa-check fa-fw" aria-hidden="true"></i><div id="cost" class="mydata"></div></a>-->
 						<a class="list-group-item netachieved list-group-item-success" href="#"><i class="fa fa-money fa-fw ahmfaicon" aria-hidden="true"></i><div id="percentdata"></div></a>
 						<a class="list-group-item netachieved list-group-item-success" href="#"><i class="fa fa-hourglass-end fa-fw ahmfaicon" aria-hidden="true"></i><div id="time" ></div></a>						
-											
+
 						<a class="list-group-item timer " href="#" data-value="20" data-definer="m"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[20 minutes] Your blood pressure, pulse rate and the temperature of your hands and feet have returned to normal.</a>
 						<a class="list-group-item timer " href="#" data-value="8" data-definer="h"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[8 hours] Remaining nicotine in your bloodstream has fallen to 6.25% of normal peak daily levels, a 93.75% reduction.</a>
 						<a class="list-group-item timer " href="#" data-value="12" data-definer="h"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[12 hours] Your blood oxygen level has increased to normal. Carbon monoxide levels have dropped to normal.</a>
 
 						<a class="list-group-item timer " href="#" data-value="24" data-definer="h"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[24 hours] Anxieties have peaked in intensity and within two weeks should return to near pre-cessation levels.</a>
-						
+
 						<a class="list-group-item timer " href="#" data-value="48" data-definer="h"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[48 hours] Damaged nerve endings have started to regrow and your sense of smell and taste are beginning to return to normal. Cessation anger and irritability will have peaked.</a>
-						
+
 						<a class="list-group-item timer " href="#" data-value="72" data-definer="h"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[72 hours] Your entire body will test 100% nicotine-free and over 90% of all nicotine metabolites (the chemicals it breaks down into) will now have passed from your body via your urine.  Symptoms of chemical withdrawal have peaked in intensity, including restlessness. The number of cue induced crave episodes experienced during any quitting day have peaked for the "average" ex-user. Lung bronchial tubes leading to air sacs (alveoli) are beginning to relax in recovering smokers. Breathing is becoming easier and your lung's functional abilities are starting to increase.</a>
 
 						<a class="list-group-item timer " href="#" data-value="10" data-definer="d"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[10 days] Recovery has likely progressed to the point where your addiction is no longer doing the talking. Blood circulation in your gums and teeth are now similar to that of a non-user.</a>
 
 
 						<a class="list-group-item timer " href="#" data-value="2" data-definer="w"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[2 weeks] Cessation related anger, anxiety, difficulty concentrating, impatience, insomnia, restlessness and depression have ended. If still experiencing any of these symptoms get seen and evaluated by your physician.</a>
-						
-						
+
+
 						<a class="list-group-item timer " href="#" data-value="2" data-definer="w"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[2 weeks] Your heart attack risk has started to drop. Your lung function is beginning to improve.</a>
 
-						
+
 						<a class="list-group-item timer " href="#" data-value="21" data-definer="d"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[21 days] The number of acetylcholine receptors, which were up-regulated in response to nicotine's presence in the brain, have now substantially down-regulated, and receptor binding has returned to levels seen in the brains of non-smokers.</a>
 
-						
+
 						<a class="list-group-item timer " href="#" data-value="4" data-definer="w"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[4 weeks] Your circulation has substantially improved. Walking has become easier. Your chronic cough, if any, has likely disappeared. If not, get seen by a doctor, and sooner if at all concerned, as a chronic cough can be a sign of lung cancer.</a>
 
-						
+
 						<a class="list-group-item timer " href="#" data-value="4" data-definer="w"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[4 weeks] Plasma suPAR is a stable inflammatory biomarker predictive of development of diseases ranging from diabetes to cancer in smokers. A 2016 study found that within 4 weeks of quitting smoking, with or without NRT, that suPAR levels in 48 former smokers had fallen from a baseline smoking median of 3.2 ng/ml to levels "no longer significantly different from the never smokers' values" (1.9 ng/ml)</a>
-						
-						
+
+
 						<a class="list-group-item timer " href="#" data-value="8" data-definer="w"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[8 weeks] Insulin resistance in smokers has normalized despite average weight gain of 2.7 kg</a>
 
-												
+
 						<a class="list-group-item timer " href="#" data-value="3" data-definer="M"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[3 months] Any smoking related sinus congestion, fatigue or shortness of breath has decreased. Cilia have regrown in your lungs, thereby increasing their ability to handle mucus, keep your lungs clean and reduce infections. Your body's overall energy has increased.</a>
-						
-						
+
+
 						<a class="list-group-item timer " href="#" data-value="1" data-definer="y"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[1 year] Your excess risk of coronary heart disease, heart attack and stroke has dropped to less than half that of a smoker.</a>						
 
-						
-						
+
+
 						<a class="list-group-item timer " href="#" data-value="5" data-definer="y"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[5 years] Your risk of a subarachnoid hemorrhage has declined to 59% of your risk while still smoking (2012 study). If a female ex-smoker, your risk of developing diabetes is now that of a non-smoker (2001 study).</a>
 
-						
-						
+
+
 						<a class="list-group-item timer " href="#" data-value="6" data-definer="y"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[6 year] Your risk of stroke has declined to that of a non-smoker.</a>
 
-						
-						
+
+
 						<a class="list-group-item timer " href="#" data-value="10" data-definer="y"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[10 year] Your risk of being diagnosed with lung cancer is between 30% and 50% of that for a continuing smoker (2005 study). Risk of death from lung cancer has declined by almost half if you were an average smoker (one pack per day).  Risk of cancer of the mouth, throat, esophagus and pancreas have declined. Risk of developing diabetes for both men and women is now similar to that of a never-smoker (2001 study).</a>
 
 						<a class="list-group-item timer " href="#" data-value="13" data-definer="y"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[13 year] The average smoker who is able to live to age 75 has 5.8 fewer teeth than a non-smoker (1998 study). But by year 13 after quitting, your risk of smoking induced tooth loss has declined to that of a never-smoker (2006 study).</a>
@@ -156,18 +156,19 @@
 
 						<a class="list-group-item timer " href="#" data-value="20" data-definer="y"><i class="fa fa-check fa-fw ahmfaicon" aria-hidden="true"></i>[20 year] Female excess risk of death from all smoking related causes, including lung disease and cancer, has now reduced to that of a never-smoker (2008 study). Risk of pancreatic cancer has declined to that of a never-smoker (2011 study).</a>						
 					</div>
-				
+
 					<button type="button" class="btn btn-primary" id="collapse">Collapse</button>
 				</div>
+
 			</div>
 		</div>
 
-		
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
 		<script src="https://rawgit.com/codebox/moment-precise-range/master/moment-precise-range.js"></script>		
-		
+
 		<script>
 
 
@@ -180,7 +181,7 @@
 
 
 			var MomentQuitTime = moment("2017-11-16 12:30:00",       "YYYY-MM-DD HH:mm:ss");
-			
+
 
 			var SmokingCostPerDay = 6.5;
 			var MinutesSpentOnSmokingPerDay = 20 * 5;
@@ -194,16 +195,16 @@
 
 			function showDiff(){
 
-			
-			
+
+
 			var MomentRightNow = moment();			
 			var QuitDuration = moment.duration(MomentRightNow.diff(MomentQuitTime));
-			
+
 			//QuitDuration.add(5, "y");
 			//var d2 = d1.clone();
 
 			var TextElapsedTime = moment.preciseDiff(MomentQuitTime, MomentRightNow);
-			
+
 			var LungCleaningProgress = (QuitDuration / LungCleaningTime * 100 ).toFixed(5);
 			var SavedCost = (SmokingCostPerDay * QuitDuration.asDays());
 			var SavedTime = moment.duration((MinutesSpentOnSmokingPerDay * QuitDuration.asDays()), 'minutes').humanize();
@@ -224,10 +225,10 @@
 
 			// Show saved amount
 			$("#time").html("<span class='biggerspan'> " + SavedTime + " saved.</span>");		
-			
+
 			// Show all items
 			$("#collapse").click(function() {
-				$(".collapse").toggle();
+			$(".collapse").toggle();
 			});
 
 
@@ -235,46 +236,46 @@
 
 			var MomentDummyComperatorClone = QuitDuration.clone();			
 			var GetCurrentItemAchievementTime = MomentDummyComperatorClone.subtract($(this).data("value"),$(this).data("definer"));
-			
+
 			if ( GetCurrentItemAchievementTime > 0 ){
-			
-					
-					
-					$(this).addClass("achieved").addClass("list-group-item-success").removeClass("notachieved").removeClass("disabled").addClass("collapse");
-					$(this).find("i.fa").addClass("fa-check").removeClass("fa-clock-o");
-					//console.log($(this).text() + " - (Yes) - " + GetCurrentItemAchievementTime.toISOString());
-					
-					} else
-					{
-					//console.log($(this).text() + " - (No) - " + GetCurrentItemAchievementTime.toISOString());
-					$(this).addClass("notachieved").addClass("disabled").removeClass("achieved").removeClass("list-group-item-success").addClass("collapse");
-					$(this).find("i.fa").removeClass("fa-check").addClass("fa-clock-o");
-					};
-
-
-					});
-
-					});
 
 
 
-					setTimeout(showDiff,1000);
+		$(this).addClass("achieved").addClass("list-group-item-success").removeClass("notachieved").removeClass("disabled").addClass("collapse");
+		$(this).find("i.fa").addClass("fa-check").removeClass("fa-clock-o");
+		//console.log($(this).text() + " - (Yes) - " + GetCurrentItemAchievementTime.toISOString());
 
-						$( "#achs a.achieved").slice(-2).addClass("showit").removeClass("collapse");
-			
-						$( "#achs a.notachieved").slice(0, 3).addClass("showit").removeClass("collapse");
-			
-						//$( "a.achieved:nth-last-of-type(1)").show();					
-					
-					}
-					
-					
-	
-			
-			
-				</script>
+		} else
+		{
+		//console.log($(this).text() + " - (No) - " + GetCurrentItemAchievementTime.toISOString());
+		$(this).addClass("notachieved").addClass("disabled").removeClass("achieved").removeClass("list-group-item-success").addClass("collapse");
+		$(this).find("i.fa").removeClass("fa-check").addClass("fa-clock-o");
+		};
 
 
+		});
 
-			</body>
-		</html>
+		});
+
+
+
+		setTimeout(showDiff,1000);
+
+		$( "#achs a.achieved").slice(-2).addClass("showit").removeClass("collapse");
+
+		$( "#achs a.notachieved").slice(0, 3).addClass("showit").removeClass("collapse");
+
+		//$( "a.achieved:nth-last-of-type(1)").show();					
+
+		}
+
+
+
+
+
+	</script>
+
+
+
+</body>
+</html>
